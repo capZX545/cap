@@ -5,9 +5,12 @@ import EngineeringCalculator from './components/EngineeringCalculator';
 import FormulaCalculator from './components/FormulaCalculator';
 import AICalculator from './components/AICalculator';
 import SmartAnalyzer from './components/SmartAnalyzer';
+import GeometryLab from './components/GeometryLab';
+import MathSolver from './components/MathSolver';
+import ConstantsPanel from './components/ConstantsPanel';
 import { totalFormulas } from './data/formulas';
 
-type CalcMode = 'basic' | 'engineering' | 'formula' | 'ai' | 'analyzer';
+type CalcMode = 'basic' | 'engineering' | 'formula' | 'ai' | 'analyzer' | 'geometry' | 'mathsolver';
 
 function AppContent() {
   const { lang, setLang, t, dir } = useLang();
@@ -19,6 +22,8 @@ function AppContent() {
     { id: 'formula', label: t('formulaCalc'), icon: '📐' },
     { id: 'ai', label: lang === 'fa' ? 'دستیار هوشمند' : 'AI Assistant', icon: '🤖' },
     { id: 'analyzer', label: lang === 'fa' ? 'تحلیلگر سیستم' : 'System Analyzer', icon: '🧠' },
+    { id: 'geometry', label: lang === 'fa' ? 'آزمایشگاه هندسه' : 'Geometry Lab', icon: '📐' },
+    { id: 'mathsolver', label: lang === 'fa' ? 'حل ریاضی' : 'Math Solver', icon: '∫' },
   ];
 
   return (
@@ -46,7 +51,7 @@ function AppContent() {
                     {totalFormulas} {t('formulas')}
                   </span>
                   <span className="w-1 h-1 rounded-full bg-slate-600" />
-                  <span className="text-[10px] sm:text-xs text-blue-400/70">v2.0</span>
+                  <span className="text-[10px] sm:text-xs text-blue-400/70">v3.0</span>
                 </div>
               </div>
             </div>
@@ -87,6 +92,8 @@ function AppContent() {
           {mode === 'formula' && <FormulaCalculator />}
           {mode === 'ai' && <AICalculator />}
           {mode === 'analyzer' && <SmartAnalyzer />}
+          {mode === 'geometry' && <GeometryLab />}
+          {mode === 'mathsolver' && <MathSolver />}
         </main>
 
         {/* Footer */}
@@ -98,6 +105,9 @@ function AppContent() {
           </p>
         </footer>
       </div>
+
+      {/* Floating Constants Panel - Available everywhere */}
+      <ConstantsPanel isFloating={true} />
     </div>
   );
 }

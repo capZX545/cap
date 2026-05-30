@@ -2111,4 +2111,7 @@ export const formulas: Formula[] = [
     (vars, u) => u === 'NA' ? vars.n * Math.sin(vars.theta * Math.PI / 180) : u === 'n' ? vars.NA / Math.sin(vars.theta * Math.PI / 180) : Math.asin(vars.NA / vars.n) * 180 / Math.PI),
 ];
 
-export const totalFormulas = formulas.length;
+import { formulas2 } from './formulas2';
+
+export const allFormulas = [...formulas, ...formulas2];
+export const totalFormulas = allFormulas.length;

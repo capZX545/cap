@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLang } from '../context/LanguageContext';
-import { formulas, type Formula } from '../data/formulas';
+import { allFormulas as formulas, type Formula } from '../data/formulas';
 import * as math from 'mathjs';
 
 interface Message {

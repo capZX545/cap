@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useLang } from '../context/LanguageContext';
-import { formulas, categories, type Formula } from '../data/formulas';
+import { allFormulas as formulas, categories, type Formula } from '../data/formulas';
 
 interface CalculationStep {
   step: number;
